@@ -7,13 +7,13 @@ const Shop = () => {
         const response = await fetch('https://api.escuelajs.co/api/v1/products');
         const result = await response.json();
 
-        const resultItems = result.map((res) => {
-            return {
+        const resultItems = result.filter((res) => res.id < 50).map((res) => {
+            return ({
                 title: res.title,
                 price: res.price,
                 images: res.images,
                 id: res.id,
-            }
+            })
         })
         setProducts(resultItems);
     }
@@ -27,21 +27,21 @@ const Shop = () => {
         <>
             <div>Shop</div>
             <Link to="/">Home</Link>
-            <div>
+            <div className="flex flex-wrap">
                 {products.map((prod) => {
-                    return (<div key={prod.id}>
+                    return (
+                    <div className="w-1/3" key={prod.id}>
                         <h1>{prod.title}</h1>
                         <div>
                             {prod.images.map((link, idx) => {
-                                return (
-                                <div key={idx}>
+                                return (<div key={idx}>
                                     <img src={link}></img>
-                                </div>
-                                )
+                                </div>)
                             })}
                         </div>
                         <div>${prod.price}</div>
-                    </div>)
+                    </div>
+                    )
                 })}
             </div>
         </>
