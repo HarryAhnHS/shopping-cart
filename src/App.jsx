@@ -4,8 +4,8 @@ function App() {
 
   return (
     <>
-      <div>App</div>
-      <Link to="/products">Shop now</Link>
+      <div className="font-bold text-lg py-10 flex justify-center">App</div>
+      <Link to="/shop">Shop now</Link>
     </>
   )
 }

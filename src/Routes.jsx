@@ -1,7 +1,7 @@
 // import { Children } from "react";
 
 import App from "./App";
-import Shop from "./components/Shop";
+import Shop from "./Shop";
 import ErrorPage from "./components/ErrorPage";
 // import ProductDetails
 
@@ -13,16 +13,13 @@ const Routes = [
         errorElement: <ErrorPage />
     },
     {
-        path: 'products',
+        path: 'shop',
         element: <Shop />,
-
-        // children: [
-        //     {
-        //         path: '/:productID',
-        //         element: <ProductDetails />
-        //     }
-        // ]
-    }
+    },
+    // {
+    //     path: 'product/:productId',
+    //     element: <ProductDetail />
+    // }
 ];
 
 export default Routes;
