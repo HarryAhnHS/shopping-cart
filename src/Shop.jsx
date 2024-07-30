@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import Header from "./components/Header";
+
 const Shop = () => {
     const [products, setProducts] = useState([]);
     async function getProducts() {
         const response = await fetch('https://api.escuelajs.co/api/v1/products');
         const result = await response.json();
 
-        const resultItems = result.filter((res) => res.id < 50).map((res) => {
+        const resultItems = result.filter((res) => res.id > 4 && res.id < 50).map((res) => {
             return ({
                 title: res.title,
                 price: res.price,
@@ -25,19 +27,14 @@ const Shop = () => {
     console.log(products)
     return (
         <>
-            <div>Shop</div>
-            <Link to="/">Home</Link>
+            <Header />
             <div className="flex flex-wrap">
                 {products.map((prod) => {
                     return (
                     <div className="w-1/3" key={prod.id}>
                         <h1>{prod.title}</h1>
                         <div>
-                            {prod.images.map((link, idx) => {
-                                return (<div key={idx}>
-                                    <img src={link}></img>
-                                </div>)
-                            })}
+                            <img src={prod.images[0]}></img>
                         </div>
                         <div>${prod.price}</div>
                     </div>

@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom"
+import Header from "./components/Header";
 
 function App() {
 
   return (
     <>
-      <div className="font-bold text-lg py-10 flex justify-center">App</div>
-      <Link to="/shop">Shop now</Link>
+      <Header />
     </>
   )
 }
