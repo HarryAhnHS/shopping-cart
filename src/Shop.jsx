@@ -64,6 +64,9 @@ const Shop = () => {
 
         const newProducts = {
             id: prodId,
+            title: products.find((prod) => prod.id == prodId).title,
+            price: products.find((prod) => prod.id == prodId).price,
+            images: products.find((prod) => prod.id == prodId).images,
             quantity: products.find((prod) => prod.id == prodId).selected,
         }
 

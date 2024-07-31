@@ -22,4 +22,18 @@ describe('Header', () => {
     expect(shopLink).toHaveAttribute("href");
     expect(cart).toBeInTheDocument();
   });
+
+  // it('updates cart quantity correctly', async () => {
+  //   const user = userEvent.setup()
+
+  //   render(
+  //     <BrowserRouter>
+  //       <Shop />
+  //     </BrowserRouter>
+  //   );
+
+  //   await user.click(screen.getByRole('button', {name: /Add to cart/i}))
+
+  //   expect(screen.getByRole("button", { name: /Cart/i }))
+  // })
 });
