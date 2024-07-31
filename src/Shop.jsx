@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 import Header from "./components/Header";
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
-    const [favorites, setFavorites] = useState([]);
+    // const [favorites, setFavorites] = useState([]);
 
     async function getProducts() {
         const response = await fetch('https://api.escuelajs.co/api/v1/products');
@@ -18,6 +18,7 @@ const Shop = () => {
                 price: res.price,
                 images: res.images,
                 id: res.id,
+                selected: 1,
             })
         })
         setProducts(resultItems);
@@ -27,7 +28,56 @@ const Shop = () => {
         getProducts();
     },[])
 
-    console.log(products)
+    function increaseSelected(prodId) {
+        const updatedProducts = [...products]
+        updatedProducts.find((prod) => prod.id == prodId).selected += 1;
+
+        setProducts(updatedProducts);
+    }
+
+    function decreaseSelected(prodId) {
+        const updatedProducts = [...products]
+        updatedProducts.find((prod) => prod.id == prodId).selected -= 1;
+
+        setProducts(updatedProducts);
+    }
+
+    function resetSelected(prodId) {
+        const updatedProducts = [...products]
+        updatedProducts.find((prod) => prod.id == prodId).selected = 1;
+
+        setProducts(updatedProducts);
+    }
+
+    function handleSelectedChange(e, prodId) {
+        const updatedProducts = [...products]
+        updatedProducts.find((prod) => prod.id == prodId).selected = e.target.value;
+
+        setProducts(updatedProducts);
+    }
+
+    function addToCart(prodId) {
+        let exists = false;
+        cart.forEach((prod) => {
+            if (prod.id == prodId) exists = true;
+        })
+
+        const newProducts = {
+            id: prodId,
+            quantity: products.find((prod) => prod.id == prodId).selected,
+        }
+
+        let updatedCart = [...cart];
+        if (exists) updatedCart.find((prod) => prod.id == prodId).quantity += newProducts.quantity;
+        else updatedCart = [...updatedCart, newProducts];
+
+        setCart(updatedCart);
+        resetSelected(prodId);
+    }
+
+
+    console.log(products);
+    console.log(cart);
     return (
         <>
             <Header />
@@ -44,12 +94,12 @@ const Shop = () => {
                                     <div className="text-lg font-semibold text-slate-500">${prod.price}</div>
                                 </div>
                                 <div className="flex">
-                                    <button className="w-8 h-8 border-2">+</button>
-                                    <input className="w-6 h-8 text-center" type="num"></input>
-                                    <button className="w-8 h-8 border-2">-</button>
+                                    <button className="w-8 h-8 border-2" onClick={() => increaseSelected(prod.id)}>+</button>
+                                    <input className="w-16 h-8 text-center" type="text" value={prod.selected} onChange={(e) => handleSelectedChange(e, prod.id)}></input>
+                                    <button className="w-8 h-8 border-2" onClick={() => decreaseSelected(prod.id)}>-</button>
                                 </div>
                                 <div>
-                                    <button className="h-10 px-6 font-semibold rounded-md bg-black text-white" type="submit">
+                                    <button className="h-10 px-6 font-semibold rounded-md bg-black text-white" type="submit" onClick={() => addToCart(prod.id)}>
                                         Add to cart
                                     </button>
                                 </div>
