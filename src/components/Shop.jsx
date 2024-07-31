@@ -92,9 +92,9 @@ const Shop = ({cart, setCart}) => {
                                     <div className="text-lg font-semibold text-slate-500">${prod.price}</div>
                                 </div>
                                 <div className="flex">
-                                    <button className="w-8 h-8 border-2" onClick={() => increaseSelected(prod.id)}>+</button>
-                                    <input className="w-16 h-8 text-center" type="text" min="0" value={prod.selected} onChange={(e) => handleSelectedChange(e, prod.id)}></input>
                                     <button className="w-8 h-8 border-2" onClick={() => decreaseSelected(prod.id)}>-</button>
+                                    <input className="w-16 h-8 text-center" type="text" min="0" value={prod.selected} onChange={(e) => handleSelectedChange(e, prod.id)}></input>
+                                    <button className="w-8 h-8 border-2" onClick={() => increaseSelected(prod.id)}>+</button>
                                 </div>
                                 <div>
                                     <button className="h-10 px-6 font-semibold rounded-md bg-black text-white" type="submit" onClick={() => addToCart(prod.id)}>
