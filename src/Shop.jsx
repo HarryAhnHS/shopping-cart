@@ -42,16 +42,16 @@ const Shop = () => {
         setProducts(updatedProducts);
     }
 
-    function resetSelected(prodId) {
+    function handleSelectedChange(e, prodId) {
         const updatedProducts = [...products]
-        updatedProducts.find((prod) => prod.id == prodId).selected = 1;
+        updatedProducts.find((prod) => prod.id == prodId).selected = e.target.value;
 
         setProducts(updatedProducts);
     }
 
-    function handleSelectedChange(e, prodId) {
+    function resetSelected(prodId) {
         const updatedProducts = [...products]
-        updatedProducts.find((prod) => prod.id == prodId).selected = e.target.value;
+        updatedProducts.find((prod) => prod.id == prodId).selected = 1;
 
         setProducts(updatedProducts);
     }
@@ -80,7 +80,7 @@ const Shop = () => {
     console.log(cart);
     return (
         <>
-            <Header />
+            <Header cart={cart}/>
             <div className="flex flex-wrap">
                 {products.map((prod) => {
                     return (
@@ -95,7 +95,7 @@ const Shop = () => {
                                 </div>
                                 <div className="flex">
                                     <button className="w-8 h-8 border-2" onClick={() => increaseSelected(prod.id)}>+</button>
-                                    <input className="w-16 h-8 text-center" type="text" value={prod.selected} onChange={(e) => handleSelectedChange(e, prod.id)}></input>
+                                    <input className="w-16 h-8 text-center" type="text" min="0" value={prod.selected} onChange={(e) => handleSelectedChange(e, prod.id)}></input>
                                     <button className="w-8 h-8 border-2" onClick={() => decreaseSelected(prod.id)}>-</button>
                                 </div>
                                 <div>
