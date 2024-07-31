@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
 
-import Header from "./components/Header";
-
-const Shop = () => {
+const Shop = ({cart, setCart}) => {
     const [products, setProducts] = useState([]);
-    const [cart, setCart] = useState([]);
     // const [favorites, setFavorites] = useState([]);
 
     async function getProducts() {
@@ -83,7 +79,6 @@ const Shop = () => {
     console.log(cart);
     return (
         <>
-            <Header cart={cart}/>
             <div className="flex flex-wrap">
                 {products.map((prod) => {
                     return (
