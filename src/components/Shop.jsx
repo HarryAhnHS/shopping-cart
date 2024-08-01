@@ -109,25 +109,27 @@ const Shop = ({products, setProducts, cart, setCart}) => {
                 <div className="flex flex-wrap">
                     {products.map((prod) => {
                         return (
-                                <div className="my-2 flex box-border rounded-lg border-2 w-1/3 cursor-pointer" key={prod.id} onClick={() => routeChange(prod.title)}>
-                                    <div className="flex-none w-1/3 h-64">
-                                        <img src={prod.images[0]} className="inset-0 w-full h-full object-cover"></img>
-                                    </div>
-                                    <div className="flex-auto p-6">
-                                        <div className="flex flex-wrap">
-                                            <h1 className="flex-auto text-lg font-semibold text-slate-9000">{prod.title}</h1>
-                                            <div className="text-lg font-semibold text-slate-500">${prod.price}</div>
+                                <div className="box-border w-full sm:w-1/2 lg:w-1/3 p-3" key={prod.id}>
+                                    <div className="flex rounded-lg border-2 cursor-pointer" onClick={() => routeChange(prod.title)}>
+                                        <div className="flex-none w-1/3 h-64">
+                                            <img src={prod.images[0]} className="inset-0 w-full h-full object-cover"></img>
                                         </div>
-                                        <div className="flex">
-                                            <button className="w-8 h-8 border-2" onClick={() => decreaseSelected(prod.id)}>-</button>
-                                            <input className="w-16 h-8 text-center" type="text" min="0" value={prod.selected} onChange={(e) => handleSelectedChange(e, prod.id)}></input>
-                                            <button className="w-8 h-8 border-2" onClick={() => increaseSelected(prod.id)}>+</button>
-                                        </div>
-                                        <div>
-                                            <button className="h-10 px-6 font-semibold rounded-md bg-black text-white" type="submit" onClick={() => addToCart(prod.id)}>
-                                                Add to cart
-                                            </button>
-                                            <button className="h-10 px-6 font-normal rounded-md bg-black text-white" onClick={() => toggleFavorite(prod.id)}>{prod.favorite ? 'Remove from Favorites' : 'Add to Favorites'}</button>
+                                        <div className="flex-auto p-6">
+                                            <div className="flex flex-wrap">
+                                                <h1 className="flex-auto text-lg font-semibold text-slate-9000">{prod.title}</h1>
+                                                <div className="text-lg font-semibold text-slate-500">${prod.price}</div>
+                                            </div>
+                                            <div className="flex">
+                                                <button className="w-8 h-8 border-2" onClick={() => decreaseSelected(prod.id)}>-</button>
+                                                <input className="w-16 h-8 text-center" type="text" min="0" value={prod.selected} onChange={(e) => handleSelectedChange(e, prod.id)}></input>
+                                                <button className="w-8 h-8 border-2" onClick={() => increaseSelected(prod.id)}>+</button>
+                                            </div>
+                                            <div>
+                                                <button className="h-10 px-6 font-semibold rounded-md bg-black text-white" type="submit" onClick={() => addToCart(prod.id)}>
+                                                    Add to cart
+                                                </button>
+                                                <button className="h-10 px-6 font-normal rounded-md bg-black text-white" onClick={() => toggleFavorite(prod.id)}>{prod.favorite ? 'Remove from Favorites' : 'Add to Favorites'}</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
