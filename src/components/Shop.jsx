@@ -67,7 +67,7 @@ const Shop = ({products, setProducts, cart, setCart, increaseSelected, decreaseS
         <>
             {loading
             ? 
-                <div>Loading...</div>
+                <div className="p-5">Loading...</div>
             :
                 <div className="flex flex-wrap">
                     {products.map((prod) => {

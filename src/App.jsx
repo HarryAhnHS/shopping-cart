@@ -5,10 +5,17 @@ import { useState } from 'react';
 import Header from "./components/Header";
 import Shop from './components/Shop';
 import Home from './components/Home';
+import Cart from './components/Cart';
 
 function App() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+  
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  function toggleCart() {
+      setIsCartOpen(!(isCartOpen));
+  }
 
   function increaseSelected(prodId) {
     const updatedProducts = [...products]
@@ -34,7 +41,13 @@ function handleSelectedChange(e, prodId) {
   return (
     <>
       <Router>
-      <Header cart={cart}/>
+      {isCartOpen 
+          ? 
+            <Cart cart={cart} toggleCart={toggleCart}/>
+          :
+            null
+      } 
+      <Header cart={cart} toggleCart={toggleCart}/>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/shop' element={<Shop 
