@@ -17,47 +17,27 @@ function App() {
       setIsCartOpen(!(isCartOpen));
   }
 
-  function increaseSelected(prodId) {
-    const updatedProducts = [...products]
-    updatedProducts.find((prod) => prod.id == prodId).selected += 1;
-
-    setProducts(updatedProducts);
-}
-
-function decreaseSelected(prodId) {
-    const updatedProducts = [...products]
-    updatedProducts.find((prod) => prod.id == prodId).selected -= 1;
-
-    setProducts(updatedProducts);
-}
-
-function handleSelectedChange(e, prodId) {
-    const updatedProducts = [...products]
-    updatedProducts.find((prod) => prod.id == prodId).selected = e.target.value;
-
-    setProducts(updatedProducts);
-}
-
   return (
     <>
       <Router>
       {isCartOpen 
           ? 
-            <Cart cart={cart} toggleCart={toggleCart}/>
+            <Cart cart={cart} setCart={setCart} toggleCart={toggleCart}/>
           :
             null
       } 
-      <Header cart={cart} toggleCart={toggleCart}/>
+      <Header 
+        cart={cart} 
+        toggleCart={toggleCart}
+      />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/shop' element={<Shop 
           products={products}
           setProducts={setProducts}
           cart={cart} 
-          setCart={setCart} 
-          increaseSelected={increaseSelected} 
-          decreaseSelected={decreaseSelected} 
-          handleSelectedChange={handleSelectedChange}/>}
+          setCart={setCart}
+          />}
         />
       </Routes>
     </Router>

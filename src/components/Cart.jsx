@@ -1,7 +1,30 @@
-const Cart = ({cart, toggleCart}) => {
+const Cart = ({cart, setCart, toggleCart}) => {
     const calculateTotal = () => {
         return cart.reduce((accumulator, item) => accumulator += item.quantity * item.price, 0);
     };
+
+    function increaseQuantity(prodId) {
+        const updatedCart = [...cart]
+        updatedCart.find((prod) => prod.id == prodId).quantity += 1;
+    
+        setCart(updatedCart);
+    }
+    
+    function decreaseQuantity(prodId) {
+        const updatedCart = [...cart]
+        updatedCart.find((prod) => prod.id == prodId).quantity -= 1;
+    
+        setCart(updatedCart);
+    }
+    
+    function handleQuantityChange(e, prodId) {
+        const updatedCart = [...cart]
+        updatedCart.find((prod) => prod.id == prodId).quantity = e.target.value;
+    
+        setCart(updatedCart);
+    }
+
+    
     console.log(cart)
     return (
         <>
@@ -14,16 +37,24 @@ const Cart = ({cart, toggleCart}) => {
                 
                 <div>
                     {cart.map((item) => {
-                        return <div className="flex w-full h-32 bg-red-100" key={item.id}>
-                            <div className="flex-none w-1/4 h-32">
-                                    <img src={item.images[0]} className="w-full h-full object-center object-cover"></img>
+                        return (
+                            <div className="flex w-full h-32 bg-red-100" key={item.id}>
+                                <div className="flex-none w-1/4 h-32">
+                                        <img src={item.images[0]} className="w-full h-full object-center object-cover"></img>
+                                </div>
+                                <div className="flex flex-col">
+                                    <div className="text-lg font-bold text–slate-900">{item.title}</div>
+                                    <div className="flex">
+                                        <button className="w-8 h-8 border-2" onClick={() => decreaseQuantity(item.id)}>-</button>
+                                        <input className="w-16 h-8 text-center" type="text" min="0" value={item.quantity} onChange={(e) => handleQuantityChange(e, item.id)}></input>
+                                        <button className="w-8 h-8 border-2" onClick={() => increaseQuantity(item.id)}>+</button>
+                                    </div>
+                                    <div>${item.quantity * item.price}</div>
+                                </div>
                             </div>
-                            <div className="text-lg">{item.title}</div>
-                            <div>{item.quantity}</div>
-                            <div>${item.quantity * item.price}</div>
-                        </div>
+                        )
                     })}
-                    <p>Total: ${calculateTotal()}</p>
+                    <div>Total: ${calculateTotal()}</div>
                 </div>
             </div>
             <div className='overlay fixed h-screen w-screen bg-black opacity-50' onClick={toggleCart}>

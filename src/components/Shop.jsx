@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const Shop = ({products, setProducts, cart, setCart, increaseSelected, decreaseSelected, handleSelectedChange}) => {
+const Shop = ({products, setProducts, cart, setCart}) => {
     const [loading, setLoading] = useState(true);
     // const [favorites, setFavorites] = useState([]);
 
@@ -30,6 +30,27 @@ const Shop = ({products, setProducts, cart, setCart, increaseSelected, decreaseS
     useEffect(() =>{
         getProducts();
     }, [])
+
+    function increaseSelected(prodId) {
+        const updatedProducts = [...products]
+        updatedProducts.find((prod) => prod.id == prodId).selected += 1;
+    
+        setProducts(updatedProducts);
+    }
+    
+    function decreaseSelected(prodId) {
+        const updatedProducts = [...products]
+        updatedProducts.find((prod) => prod.id == prodId).selected -= 1;
+    
+        setProducts(updatedProducts);
+    }
+    
+    function handleSelectedChange(e, prodId) {
+        const updatedProducts = [...products]
+        updatedProducts.find((prod) => prod.id == prodId).selected = e.target.value;
+    
+        setProducts(updatedProducts);
+    }
     
     function resetSelected(prodId) {
         const updatedProducts = [...products]
@@ -67,7 +88,7 @@ const Shop = ({products, setProducts, cart, setCart, increaseSelected, decreaseS
         <>
             {loading
             ? 
-                <div className="p-5">Loading...</div>
+                <div className="h-screen w-full flex items-center justify-center">Loading...</div>
             :
                 <div className="flex flex-wrap">
                     {products.map((prod) => {
