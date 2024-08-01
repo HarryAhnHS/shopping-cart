@@ -1,16 +1,20 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
+import "@testing-library/jest-dom";
+import { MemoryRouter } from "react-router";
 // import userEvent from '@testing-library/user-event'
+import { vi } from 'vitest' 
+import Header from '../components/Header';
 
-import Shop from '../Shop'
-import { BrowserRouter } from 'react-router-dom';
+const mockToggleCart = vi.fn();
+const mockCart = [{id: 1, title: "MockA", price: 10, images:"", quantity: 5, favorite: false}];
 
 describe('Header', () => {
   it('renders home, shop, and cart links', () => {
     render(
-      <BrowserRouter>
-        <Shop />
-      </BrowserRouter>
+      <MemoryRouter>
+        <Header cart={mockCart} toggleCart={mockToggleCart}/>
+      </MemoryRouter>
     );
     const homeLink = screen.getByRole("link", { name: /Home/i });
     const shopLink = screen.getByRole("link", { name: /Shop/i });
@@ -23,17 +27,34 @@ describe('Header', () => {
     expect(cart).toBeInTheDocument();
   });
 
-  // it('updates cart quantity correctly', async () => {
-  //   const user = userEvent.setup()
+  it("nav links path should be correct", () => {
+    render(
+      <MemoryRouter>
+        <Header cart={mockCart} toggleCart={mockToggleCart}/>
+      </MemoryRouter>
+    );
+    const homeLink = screen.getByRole("link", { name: /^home$/i });
+    const storeLink = screen.getByRole("link", { name: /^shop$/i });
+    expect(homeLink).toHaveAttribute("href", "/");
+    expect(storeLink).toHaveAttribute("href", "/shop");
+  });
 
-  //   render(
-  //     <BrowserRouter>
-  //       <Shop />
-  //     </BrowserRouter>
-  //   );
+  it("should render nav and match snapshot", () => {
+    const { container } = render(
+      <MemoryRouter>
+        <Header cart={mockCart} toggleCart={mockToggleCart}/>
+      </MemoryRouter>
+    );
+    expect(container).toMatchSnapshot();
+  });
 
-  //   await user.click(screen.getByRole('button', {name: /Add to cart/i}))
-
-  //   expect(screen.getByRole("button", { name: /Cart/i }))
-  // })
+  it("should set cart item count to 5", () => {
+    render(
+      <MemoryRouter>
+        <Header cart={mockCart} toggleCart={mockToggleCart}/>
+      </MemoryRouter>
+    );
+    expect(screen.getByRole('button', { name: /5/i })).toBeInTheDocument();
+  });
 });
+

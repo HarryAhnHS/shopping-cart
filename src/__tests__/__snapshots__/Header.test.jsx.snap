@@ -1,0 +1,31 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Header > should render nav and match snapshot 1`] = `
+<div>
+  <div>
+    <div
+      class="flex py-5 bg-red-800 text-white"
+    >
+      <a
+        class="mx-1"
+        href="/"
+      >
+        Home
+      </a>
+      <a
+        class="mx-1"
+        href="/shop"
+      >
+        Shop
+      </a>
+      <button
+        class="mx-1"
+      >
+        Cart (
+        5
+        )
+      </button>
+    </div>
+  </div>
+</div>
+`;

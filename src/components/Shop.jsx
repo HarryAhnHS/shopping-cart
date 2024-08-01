@@ -15,6 +15,7 @@ const Shop = ({products, setProducts, cart, setCart}) => {
                     images: res.images,
                     id: res.id,
                     selected: 1,
+                    favorite: false,
                 })
             })
             setProducts(resultItems);
@@ -59,6 +60,14 @@ const Shop = ({products, setProducts, cart, setCart}) => {
         setProducts(updatedProducts);
     }
 
+    function toggleFavorite(prodId) {
+        const updatedProducts = [...products];
+        updatedProducts.find(((prod) => prod.id == prodId)).favorite = !(updatedProducts.find(((prod) => prod.id == prodId)).favorite);
+
+        setProducts(updatedProducts);
+    }
+
+
     function addToCart(prodId) {
         let exists = false;
         cart.forEach((prod) => {
@@ -71,6 +80,7 @@ const Shop = ({products, setProducts, cart, setCart}) => {
             price: products.find((prod) => prod.id == prodId).price,
             images: products.find((prod) => prod.id == prodId).images,
             quantity: products.find((prod) => prod.id == prodId).selected,
+            favorite: products.find((prod) => prod.id == prodId).favorite
         }
 
         let updatedCart = [...cart];
@@ -111,6 +121,7 @@ const Shop = ({products, setProducts, cart, setCart}) => {
                                         <button className="h-10 px-6 font-semibold rounded-md bg-black text-white" type="submit" onClick={() => addToCart(prod.id)}>
                                             Add to cart
                                         </button>
+                                        <button className="h-10 px-6 font-normal rounded-md bg-black text-white" onClick={() => toggleFavorite(prod.id)}>{prod.favorite ? 'Remove from Favorites' : 'Add to Favorites'}</button>
                                     </div>
                                 </div>
                             </div>
