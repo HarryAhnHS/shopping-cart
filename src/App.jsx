@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Shop from './components/Shop';
 import Home from './components/Home';
 import Cart from './components/Cart';
+import ProductPage from './components/ProductPage';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -39,6 +40,12 @@ function App() {
           setCart={setCart}
           />}
         />
+        <Route
+            path="/shop/:itemId"
+            element={
+              <ProductPage/>
+            }
+          />
       </Routes>
     </Router>
     </>
