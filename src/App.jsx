@@ -13,10 +13,7 @@ function App() {
   const [cart, setCart] = useState([]);
   
   const [isCartOpen, setIsCartOpen] = useState(false);
-
-  function toggleCart() {
-      setIsCartOpen(!(isCartOpen));
-  }
+  
 
   function increaseSelected(e, prodId) {
     e.stopPropagation();
@@ -70,6 +67,10 @@ function App() {
 
       setCart(updatedCart);
       resetSelected(prodId);
+  }
+
+  function toggleCart() {
+    setIsCartOpen(!(isCartOpen));
   }
 
   return (

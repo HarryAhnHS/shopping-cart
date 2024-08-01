@@ -4,6 +4,12 @@ import { useNavigate } from "react-router-dom";
 const Shop = ({products, setProducts, cart, decreaseSelected, handleSelectedChange, increaseSelected, addToCart}) => {
     const [loading, setLoading] = useState(true);
 
+    let navigate = useNavigate(); 
+    const routeChange = (id) => { 
+        let path = `/shop/${id}`; 
+        navigate(path);
+    }
+    
     async function getProducts() {
         try {
             const response = await fetch('https://api.escuelajs.co/api/v1/products');
@@ -27,16 +33,10 @@ const Shop = ({products, setProducts, cart, decreaseSelected, handleSelectedChan
             setLoading(false);
         }
     }
-    
+  
     useEffect(() =>{
-        getProducts();
-    }, [])
-
-    let navigate = useNavigate(); 
-    const routeChange = (id) => { 
-        let path = `/shop/${id}`; 
-        navigate(path);
-    }
+      getProducts();
+  }, [])
     
 
 
