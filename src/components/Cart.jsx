@@ -12,8 +12,10 @@ const Cart = ({cart, setCart, toggleCart}) => {
     
     function decreaseQuantity(prodId) {
         const updatedCart = [...cart]
-        updatedCart.find((prod) => prod.id == prodId).quantity -= 1;
-    
+        if (updatedCart.find((prod) => prod.id == prodId).quantity > 1) {
+            updatedCart.find((prod) => prod.id == prodId).quantity -= 1;
+        }
+
         setCart(updatedCart);
     }
     

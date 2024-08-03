@@ -38,8 +38,6 @@ const Shop = ({products, setProducts, cart, decreaseSelected, handleSelectedChan
       getProducts();
   }, [])
     
-
-
     console.log(products);
     console.log(cart);
     return (
@@ -63,7 +61,7 @@ const Shop = ({products, setProducts, cart, decreaseSelected, handleSelectedChan
                                             </div>
                                             <div className="flex">
                                                 <button className="w-8 h-8 border-2" onClick={(e) => decreaseSelected(e, prod.id)}>-</button>
-                                                <input className="w-16 h-8 text-center" type="text" min="0" value={prod.selected} onChange={(e) => handleSelectedChange(e, prod.id)}></input>
+                                                <input className="w-16 h-8 text-center" type="text" min="0" value={prod.selected} onClick={(e) => e.stopPropagation()} onChange={(e) => handleSelectedChange(e, prod.id)}></input>
                                                 <button className="w-8 h-8 border-2" onClick={(e) => increaseSelected(e, prod.id)}>+</button>
                                             </div>
                                             <div>

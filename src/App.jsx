@@ -26,7 +26,9 @@ function App() {
   function decreaseSelected(e, prodId) {
       e.stopPropagation();
       const updatedProducts = [...products]
-      updatedProducts.find((prod) => prod.id == prodId).selected -= 1;
+      if (updatedProducts.find((prod) => prod.id == prodId).selected > 1) {
+        updatedProducts.find((prod) => prod.id == prodId).selected -= 1;
+      }
 
       setProducts(updatedProducts);
   }
@@ -61,6 +63,11 @@ function App() {
           favorite: products.find((prod) => prod.id == prodId).favorite
       }
 
+      if (newProducts.quantity < 1) {
+        resetSelected(prodId);
+        return;
+      }
+ 
       let updatedCart = [...cart];
       if (exists) updatedCart.find((prod) => prod.id == prodId).quantity += newProducts.quantity;
       else updatedCart = [...updatedCart, newProducts];
