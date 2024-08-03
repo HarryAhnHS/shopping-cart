@@ -18,11 +18,11 @@ const Cart = ({cart, setCart, toggleCart}) => {
 
         setCart(updatedCart);
     }
-    
-    function handleQuantityChange(e, prodId) {
-        const updatedCart = [...cart]
-        updatedCart.find((prod) => prod.id == prodId).quantity = e.target.value;
-    
+
+    function deleteItem(e, prodId) {
+        e.stopPropagation();
+        const updatedCart = [...cart].filter((prod) => prod.id != prodId);
+        
         setCart(updatedCart);
     }
 
@@ -48,8 +48,9 @@ const Cart = ({cart, setCart, toggleCart}) => {
                                     <div className="text-lg font-bold text–slate-900">{item.title}</div>
                                     <div className="flex">
                                         <button className="w-8 h-8 border-2" onClick={() => decreaseQuantity(item.id)}>-</button>
-                                        <input className="w-16 h-8 text-center" type="text" min="0" value={item.quantity} onChange={(e) => handleQuantityChange(e, item.id)}></input>
+                                        <div>{item.quantity}</div>
                                         <button className="w-8 h-8 border-2" onClick={() => increaseQuantity(item.id)}>+</button>
+                                        <button onClick={(e) => deleteItem(e, item.id)}>Delete Item</button>
                                     </div>
                                     <div>${item.quantity * item.price}</div>
                                 </div>
