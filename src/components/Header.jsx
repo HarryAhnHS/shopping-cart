@@ -8,10 +8,12 @@ const Header = ({cart, toggleCart}) => {
 
     return (
         <div>
-            <div className="flex py-5 bg-red-800 text-white">
-                <Link to="/" className="mx-1">Home</Link>
-                <Link to="/shop" className="mx-1">Shop</Link>
-                <button className="mx-1" onClick={() => toggleCart()}>Cart ({consolidateCart()})</button>
+            <div className="flex py-5 bg-[#403d39] text-white">
+                <div className="flex-1">
+                    <Link to="/" className="mx-8">Home</Link>
+                    <Link to="/shop" className="mx-8">Shop</Link>    
+                </div> 
+                <button className="mx-8" onClick={() => toggleCart()}>Cart ({consolidateCart()})</button>
             </div>
         </div>
 

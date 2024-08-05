@@ -30,8 +30,8 @@ const Cart = ({cart, setCart, toggleCart}) => {
     console.log(cart)
     return (
         <>
-            <div className="z-[2] fixed right-0 h-screen w-1/2 bg-white">
-                <div className="flex items-center">
+            <div className="z-[2] fixed right-0 h-screen w-screen md:w-1/2 bg-white">
+                <div className="flex items-center py-5 mx-5">
                     <h1 className="text-lg font-bold flex-1">Cart</h1>
                     <button onClick={toggleCart}>Close</button>
                 </div>
