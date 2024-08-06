@@ -50,7 +50,7 @@ const Shop = ({products, setProducts, cart, decreaseSelected, handleSelectedChan
                     {products.map((prod) => {
                         return (
                                 <div className="box-border w-full sm:w-1/2 lg:w-1/3 p-3" key={prod.id}>
-                                    <div className="flex rounded-xl cursor-pointer bg-[#edede9]" onClick={() => routeChange(prod.id)}>
+                                    <div className="flex rounded-xl cursor-pointer bg-[#FFFFFF]" onClick={() => routeChange(prod.id)}>
                                         <div className="flex-none w-1/3 h-64">
                                             <img src={prod.images[0]} className="inset-0 w-full h-full object-cover rounded-l-xl"></img>
                                         </div>
