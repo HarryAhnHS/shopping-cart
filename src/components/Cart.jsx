@@ -69,7 +69,7 @@ const Cart = ({cart, setCart, toggleCart}) => {
                         className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2">
                         Checkout
                 </button>
-                <div className="text-lg font-bold">Total: ${calculateTotal()}</div>
+                <div className="text-lg font-bold text-start ml-3">Total: ${calculateTotal()}</div>
 
             </div>
             <div className='overlay fixed h-screen w-screen bg-black opacity-50' onClick={toggleCart}>

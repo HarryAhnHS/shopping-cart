@@ -94,7 +94,7 @@ function App() {
         toggleCart={toggleCart}
       />
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<Home products={products}/>} />
         <Route path='/shop' element={<Shop 
           products={products}
           setProducts={setProducts}

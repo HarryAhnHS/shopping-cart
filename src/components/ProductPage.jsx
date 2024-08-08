@@ -6,7 +6,6 @@ const ProductPage = ({products, decreaseSelected, handleSelectedChange, increase
     
     return (
         <>
-            <h1>Product page</h1>
                 <div className="flex-none w-1/3 h-64">
                     <img src={spotlight.images[0]} className="inset-0 w-full h-full object-cover"></img>
                 </div>
