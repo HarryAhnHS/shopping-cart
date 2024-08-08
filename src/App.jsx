@@ -126,7 +126,7 @@ function App() {
           path='/'
           element={loading 
             ? <LoadingPage />
-            : <Home featured={products.slice(0,3)} />}
+            : <Home featured={products.slice(0,4)} />}
           />
         <Route path='/shop' 
           element={<Shop 
