@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Header from "./components/Header";
 import Shop from './components/Shop';
@@ -11,9 +11,36 @@ import ProductPage from './components/ProductPage';
 function App() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
-  
+  const [loading, setLoading] = useState(true);
   const [isCartOpen, setIsCartOpen] = useState(false);
   
+  async function getProducts() {
+    try {
+        const response = await fetch('https://api.escuelajs.co/api/v1/products');
+        const result = await response.json();
+        const resultItems = result.filter((res) => res.id > 0 && res.id < 50).map((res) => {
+            return ({
+                title: res.title,
+                price: res.price,
+                images: res.images,
+                id: res.id,
+                selected: 1,
+                favorite: false,
+            })
+        })
+        setProducts(resultItems);
+    }
+    catch(err) {
+        throw new Error(err);
+    }
+    finally {
+        setLoading(false);
+    }
+  }
+
+  useEffect(() =>{
+    getProducts();
+  }, [])
 
   function increaseSelected(e, prodId) {
     e.stopPropagation();
@@ -94,15 +121,21 @@ function App() {
         toggleCart={toggleCart}
       />
       <Routes>
-        <Route path='/' element={<Home products={products}/>} />
-        <Route path='/shop' element={<Shop 
-          products={products}
-          setProducts={setProducts}
-          cart={cart} 
-          decreaseSelected={decreaseSelected} 
-          handleSelectedChange={handleSelectedChange} 
-          increaseSelected={increaseSelected}
-          addToCart={addToCart}
+        <Route 
+          path='/'
+          element={loading 
+            ? <div className="h-screen w-full flex items-center justify-center">Loading...</div>
+            : <Home featured={products[0]} />}
+          />
+        <Route path='/shop' 
+          element={<Shop 
+            products={products}
+            cart={cart} 
+            decreaseSelected={decreaseSelected} 
+            handleSelectedChange={handleSelectedChange} 
+            increaseSelected={increaseSelected}
+            addToCart={addToCart}
+            loading={loading}
           />}
         />
         <Route

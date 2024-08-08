@@ -1,43 +1,13 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Shop = ({products, setProducts, cart, decreaseSelected, handleSelectedChange, increaseSelected, addToCart}) => {
-    const [loading, setLoading] = useState(true);
+const Shop = ({products, cart, decreaseSelected, handleSelectedChange, increaseSelected, addToCart, loading}) => {
 
     let navigate = useNavigate(); 
     const routeChange = (id) => { 
         let path = `/shop/${id}`; 
         navigate(path);
     }
-    
-    async function getProducts() {
-        try {
-            const response = await fetch('https://api.escuelajs.co/api/v1/products');
-            const result = await response.json();
-            const resultItems = result.filter((res) => res.id > 0 && res.id < 50).map((res) => {
-                return ({
-                    title: res.title,
-                    price: res.price,
-                    images: res.images,
-                    id: res.id,
-                    selected: 1,
-                    favorite: false,
-                })
-            })
-            setProducts(resultItems);
-        }
-        catch(err) {
-            throw new Error(err);
-        }
-        finally {
-            setLoading(false);
-        }
-    }
-  
-    useEffect(() =>{
-      getProducts();
-  }, [])
-    
     console.log(products);
     console.log(cart);
     return (
