@@ -1,5 +1,6 @@
 // import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import LoadingPage from "./LoadingPage";
 
 const Shop = ({products, cart, decreaseSelected, handleSelectedChange, increaseSelected, addToCart, loading}) => {
 
@@ -14,7 +15,7 @@ const Shop = ({products, cart, decreaseSelected, handleSelectedChange, increaseS
         <>
             {loading
             ? 
-                <div className="h-screen w-full flex items-center justify-center">Loading...</div>
+                <LoadingPage />
             :
                 <div className="flex flex-wrap bg-[#edede9]">
                     {products.map((prod) => {
