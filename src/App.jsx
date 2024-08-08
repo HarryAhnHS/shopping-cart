@@ -7,6 +7,7 @@ import Shop from './components/Shop';
 import Home from './components/Home';
 import Cart from './components/Cart';
 import ProductPage from './components/ProductPage';
+import LoadingPage from './components/LoadingPage';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -124,13 +125,12 @@ function App() {
         <Route 
           path='/'
           element={loading 
-            ? <div className="h-screen w-full flex items-center justify-center">Loading...</div>
-            : <Home featured={products[0]} />}
+            ? <LoadingPage />
+            : <Home featured={products.slice(0,3)} />}
           />
         <Route path='/shop' 
           element={<Shop 
             products={products}
-            cart={cart} 
             decreaseSelected={decreaseSelected} 
             handleSelectedChange={handleSelectedChange} 
             increaseSelected={increaseSelected}

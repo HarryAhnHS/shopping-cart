@@ -10,46 +10,48 @@ const Home = ({featured}) => {
         navigate(path);
     }
 
-    console.log(featured)
-
     return (
-        <>
-                `<section className="flex gap-5 p-12 border-4 border-black m-3">
-                    <div className="flex flex-col items center">
-                        <h1 className="text-center font-bold">
-                            Your one-stop destination for all your shopping needs
-                        </h1>
-                        <p className="text-center text-lg">
-                            Discover an unparalleled shopping experience with our extensive
-                            selection of products, unbeatable prices, and exceptional customer
-                            service. Shop now and transform your shopping journey with us.
-                        </p>
-                        <Link
-                            to="/shop"
-                            className="w-[150px] overflow-hidden truncate rounded-lg p-3 bg-slate-200 text-center font-bold transition duration-150 ease-in-out">
-                            Shop Now
-                        </Link>
-                    </div>
-                    <div>
-                        <div className="box-border w-full sm:w-1/2 lg:w-1/3 p-3" key={featured.id}>
-                            <div className="flex rounded-xl cursor-pointer bg-[#FFFFFF]">
-                                <div className="flex-none w-1/3 h-64">
-                                    <img src={featured.images[0]} className="inset-0 w-full h-full object-cover rounded-l-xl"></img>
-                                </div>
-                                <div className="flex-auto p-6 flex flex-col">
-                                    <div className="flex flex-col">
-                                        <h1 className="flex-auto text-lg font-semibold text-slate-9000">{featured.title}</h1>
-                                        <div className="text-lg font-semibold text-slate-500">${featured.price}</div>
-                                    </div>
-                                    <button className="h-10 font-semibold rounded-md bg-black text-white" type="submit" onClick={() => routeChange(featured.id)}>
-                                        See More
-                                    </button>
-                                </div>
-                            </div>
+        <div className="border-4 border-black m-3">
+                <section className="flex gap-5 px-12">
+                    <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
+                        <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-black md:text-5xl lg:text-6xl">We invest in the world potential</h1>
+                        <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400">Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
+                        <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
+                            <Link to="/shop" className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+                                Get started
+                                <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                                </svg>
+                            </Link>
                         </div>
                     </div>
-                </section>`
-        </>
+                </section>
+                <section>
+                    <h1 className="mb-4 text-xl mx-6 font-extrabold tracking-tight leading-none text-black md:text-2xl lg:text-3xl">Featured Items</h1>
+                    <div className="flex flex-wrap">
+                        {featured.map((feat) => {
+                                return (
+                                    <div className="w-full sm:w-1/2 lg:w-1/3 p-5" 
+                                        key={feat.id}>
+                                        <div className="flex rounded-xl bg-cover bg-center h-64 cursor-pointer"
+                                            style={{ backgroundImage: `url(${feat.images[0]})` }}
+                                            onClick={() => routeChange(feat.id)}>
+                                            <div className="bg-black bg-opacity-0 rounded-xl w-full h-full hover:bg-opacity-40 transition-all duration-200">
+                                                <div className="flex-auto p-6 flex flex-col">
+                                                    <div className="flex flex-col">
+                                                        <h1 className="flex-auto text-lg font-semibold text-white">{feat.title}</h1>
+                                                        <div className="text-lg font-semibold text-white">${feat.price}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>   
+                                )
+                            })}
+                    </div>
+                        
+                </section>
+        </div>
     )
 }
 

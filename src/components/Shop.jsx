@@ -1,16 +1,13 @@
-// import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LoadingPage from "./LoadingPage";
 
-const Shop = ({products, cart, decreaseSelected, handleSelectedChange, increaseSelected, addToCart, loading}) => {
+const Shop = ({products, decreaseSelected, handleSelectedChange, increaseSelected, addToCart, loading}) => {
 
     let navigate = useNavigate(); 
     const routeChange = (id) => { 
         let path = `/shop/${id}`; 
         navigate(path);
     }
-    console.log(products);
-    console.log(cart);
     return (
         <>
             {loading
