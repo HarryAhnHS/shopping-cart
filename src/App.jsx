@@ -111,46 +111,46 @@ function App() {
   return (
     <>
       <Router>
-      {isCartOpen 
-          ? 
-            <Cart cart={cart} setCart={setCart} toggleCart={toggleCart}/>
-          :
-            null
-      } 
-      <Header 
-        cart={cart} 
-        toggleCart={toggleCart}
-      />
-      <Routes>
-        <Route 
-          path='/'
-          element={loading 
-            ? <LoadingPage />
-            : <Home featured={products.slice(0,4)} />}
-          />
-        <Route path='/shop' 
-          element={<Shop 
-            products={products}
-            decreaseSelected={decreaseSelected} 
-            handleSelectedChange={handleSelectedChange} 
-            increaseSelected={increaseSelected}
-            addToCart={addToCart}
-            loading={loading}
-          />}
+        {isCartOpen 
+            ? 
+              <Cart cart={cart} setCart={setCart} toggleCart={toggleCart}/>
+            :
+              null
+        } 
+        <Header 
+          cart={cart} 
+          toggleCart={toggleCart}
         />
-        <Route
-            path="/shop/:id"
-            element={
-              <ProductPage 
-                products={products} 
-                decreaseSelected={decreaseSelected} 
-                handleSelectedChange={handleSelectedChange} 
-                increaseSelected={increaseSelected}
-                addToCart={addToCart}/>
-            }
+        <Routes>
+          <Route 
+            path='/'
+            element={loading 
+              ? <LoadingPage />
+              : <Home featured={products.slice(0,4)} />}
+            />
+          <Route path='/shop' 
+            element={<Shop 
+              products={products}
+              decreaseSelected={decreaseSelected} 
+              handleSelectedChange={handleSelectedChange} 
+              increaseSelected={increaseSelected}
+              addToCart={addToCart}
+              loading={loading}
+            />}
           />
-      </Routes>
-    </Router>
+          <Route
+              path="/shop/:id"
+              element={
+                <ProductPage 
+                  products={products} 
+                  decreaseSelected={decreaseSelected} 
+                  handleSelectedChange={handleSelectedChange} 
+                  increaseSelected={increaseSelected}
+                  addToCart={addToCart}/>
+              }
+            />
+        </Routes>
+      </Router>
     </>
   )
 }
