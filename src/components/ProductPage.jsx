@@ -21,8 +21,8 @@ const ProductPage = ({products, decreaseSelected, handleSelectedChange, increase
                         <input className="w-16 h-8 text-center" type="text" min="0" value={spotlight.selected} onChange={(e) => handleSelectedChange(e, id)}></input>
                         <button className="w-8 h-8 border-2" onClick={(e) => increaseSelected(e, id)}>+</button>
                     </div>
-                    <div className="flex justify-center m-3">
-                        <button className="h-10 px-6 font-semibold rounded-md bg-black text-white" type="submit" onClick={(e) => addToCart(e, id)}>
+                    <div className="flex justify-center m-6">
+                        <button className="h-10 px-12 font-semibold text-[#FFFFFF] bg-[#283618]" type="submit" onClick={(e) => addToCart(e, id)}>
                             Add to cart
                         </button>
                     </div>

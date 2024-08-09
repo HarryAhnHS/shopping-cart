@@ -110,7 +110,7 @@ function App() {
   }
 
   return (
-    <>
+    <div>
       <Router>
         {isCartOpen 
             ? 
@@ -153,7 +153,7 @@ function App() {
         </Routes>
         <Footer />
       </Router>
-    </>
+    </div>
   )
 }
 

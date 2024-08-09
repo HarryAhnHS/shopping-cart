@@ -26,7 +26,7 @@ const Home = ({featured}) => {
                         </div>
                     </div>
                 </section>
-                <section className="my-6 px-12">
+                <section className="px-12">
                     <h1 className="text-xl mx-6 font-extrabold tracking-tight leading-none text-[#283618] md:text-2xl lg:text-3xl">Featured</h1>
                     <div className="flex flex-wrap">
                         {featured.map((feat) => {

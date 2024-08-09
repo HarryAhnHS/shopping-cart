@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Wavelength from '../../public/wavelength.png'
+import Wavelength from '/wavelength.png'
 
 const Header = ({cart, toggleCart}) => {
 
@@ -9,19 +9,20 @@ const Header = ({cart, toggleCart}) => {
 
     return (
         <div className="p-6 text-[#283618]">
-            <div className="relative flex justify-center items-center font-bold tracking-tight">
+            <div className="relative font-bold tracking-tight text-lg">
                 <Link to="/" className="absolute left-0 mx-3 cursor-pointer">
-                    <div className="w-[120px] md:w-[200px]">
+                    <div className="w-[160px] md:w-[200px]">
                         <img src={Wavelength} className="w-full"></img>
                     </div>
                 </Link>
                 
-                <div className="flex items-center">
-                    <Link to="/" className="mr-6 md:mr-12 lg:mr-24">Home</Link>
+                <div className="absolute right-0 flex items-center px-6 gap-6 md:gap-12">
+                    <Link to="/">Home</Link>
                     <Link to="/shop">Shop</Link>    
+                    <button className="ml-3 md:ml-6"onClick={() => toggleCart()}>Cart ({consolidateCart()})</button>
                 </div> 
 
-                <button className="absolute right-0 mx-3" onClick={() => toggleCart()}>Cart ({consolidateCart()})</button>
+
             </div>
         </div>
 

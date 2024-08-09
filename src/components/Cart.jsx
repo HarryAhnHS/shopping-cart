@@ -30,22 +30,22 @@ const Cart = ({cart, setCart, toggleCart}) => {
     console.log(cart)
     return (
         <>
-            <div className="z-[2] fixed right-0 h-screen w-screen md:w-1/2 bg-[#edede9] py-5 px-1 flex flex-col">
-                <div className="flex items-center mx-5">
+            <div className="z-[2] fixed right-0 h-screen w-screen bg-white md:w-1/2 py-3 flex flex-col">
+                <div className="flex items-center m-5">
                     <h1 className="text-lg font-bold flex-1">Cart</h1>
                     <button onClick={toggleCart}>Close</button>
                 </div>
                 
-                <div className="flex-1">
+                <div className="flex-1 overflow-y-scroll overscroll-none mb-3">
                     {cart.map((item) => {
                         return (
-                            <div className="w-full h-32" key={item.id}>
-                                <div className="mx-2 flex bg-white rounded-xl">
+                            <div className="border-2 border-black mb-3 mx-3" key={item.id}>
+                                <div className="flex bg-white">
                                     <div className="flex-none w-1/4 h-32">
-                                            <img src={item.images[0]} className="w-full h-full object-center object-cover rounded-l-xl"></img>
+                                            <img src={item.images[0]} className="w-full h-full object-center object-cover"></img>
                                     </div>
                                     <div className="flex flex-col flex-1 p-3">
-                                        <div className="text-lg font-bold text–slate-900">{item.title}</div>
+                                        <div className="text-lg font-bold tracking-tight">{item.title}</div>
                                         
                                         <div className="flex flex-1">
                                             <div className="flex flex-1 items-center justify-center">
@@ -65,12 +65,13 @@ const Cart = ({cart, setCart, toggleCart}) => {
                     })}
                 </div>
 
-                <button type="button" 
-                        className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2">
-                        Checkout
-                </button>
-                <div className="text-lg font-bold text-start ml-3">Total: ${calculateTotal()}</div>
-
+                <div className="flex flex-col">
+                    <button type="button" 
+                            className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2">
+                            Checkout
+                    </button>
+                    <div className="text-lg font-bold text-start ml-3">Total: ${calculateTotal()}</div>
+                </div>
             </div>
             <div className='overlay fixed h-screen w-screen bg-black opacity-50' onClick={toggleCart}>
             </div>
