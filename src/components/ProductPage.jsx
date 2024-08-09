@@ -5,7 +5,7 @@ const ProductPage = ({products, decreaseSelected, handleSelectedChange, increase
     const spotlight = products.find((prod) => prod.id == id);
     
     return (
-        <section className="flex flex-col border-4 border-gray-500 mx-12 sm:mx-24 my-6 md:flex-row">
+        <section className="flex flex-col mx-12 sm:mx-24 my-6 md:flex-row">
             <div className="flex-none w-full flex justify-center items-center md:w-1/2">
                 <img src={spotlight.images[0]} className="inset-0 w-full h-full object-cover"></img>
             </div>

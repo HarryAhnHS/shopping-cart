@@ -8,6 +8,7 @@ import Home from './components/Home';
 import Cart from './components/Cart';
 import ProductPage from './components/ProductPage';
 import LoadingPage from './components/LoadingPage';
+import Footer from './components/Footer';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -126,7 +127,7 @@ function App() {
             path='/'
             element={loading 
               ? <LoadingPage />
-              : <Home featured={products.slice(0,4)} />}
+              : <Home featured={products.slice(0,3)} />}
             />
           <Route path='/shop' 
             element={<Shop 
@@ -150,6 +151,7 @@ function App() {
               }
             />
         </Routes>
+        <Footer />
       </Router>
     </>
   )
