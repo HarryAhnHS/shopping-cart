@@ -12,10 +12,11 @@ import Footer from './components/Footer';
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [isCalled, setIsCalled] = useState(false);
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  
+
   async function getProducts() {
     try {
         const response = await fetch('https://api.escuelajs.co/api/v1/products');
@@ -37,6 +38,7 @@ function App() {
     }
     finally {
         setLoading(false);
+        if (products.length > 0) setIsCalled(true);
     }
   }
 
@@ -132,6 +134,7 @@ function App() {
           <Route path='/shop' 
             element={<Shop 
               products={products}
+              isCalled={isCalled}
               decreaseSelected={decreaseSelected} 
               handleSelectedChange={handleSelectedChange} 
               increaseSelected={increaseSelected}

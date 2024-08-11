@@ -67,10 +67,10 @@ const Cart = ({cart, setCart, toggleCart}) => {
 
                 <div className="flex flex-col">
                     <button type="button" 
-                            className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2">
+                            className="text-white bg-black hover:opacity-80 focus:outline-none focus:ring-4 font-medium text-sm py-2.5 mx-12 text-center">
                             Checkout
                     </button>
-                    <div className="text-lg font-bold text-start ml-3">Total: ${calculateTotal()}</div>
+                    <div className="text-lg font-bold tracking-tight text-center">Total: ${calculateTotal()}</div>
                 </div>
             </div>
             <div className='overlay fixed h-screen w-screen bg-black opacity-50' onClick={toggleCart}>
