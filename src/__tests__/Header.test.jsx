@@ -18,7 +18,7 @@ describe('Header', () => {
     );
     const homeLink = screen.getByRole("link", { name: /Home/i });
     const shopLink = screen.getByRole("link", { name: /Shop/i });
-    const cart = screen.getByRole("button", { name: /Cart/i });
+    const cart = screen.getByLabelText("cart button");
 
     expect(homeLink).toBeInTheDocument();
     expect(homeLink).toHaveAttribute("href");
@@ -54,7 +54,7 @@ describe('Header', () => {
         <Header cart={mockCart} toggleCart={mockToggleCart}/>
       </MemoryRouter>
     );
-    expect(screen.getByRole('button', { name: /5/i })).toBeInTheDocument();
+    expect(screen.getByLabelText('cart count')).toHaveTextContent('5');
   });
 });
 

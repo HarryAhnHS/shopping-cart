@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faTrash, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faBasketShopping } from "@fortawesome/free-solid-svg-icons";
 
 const Cart = ({cart, setCart, toggleCart}) => {
@@ -30,8 +30,6 @@ const Cart = ({cart, setCart, toggleCart}) => {
         setCart(updatedCart);
     }
 
-    
-    console.log(cart)
     return (
         <>
             <div className="z-[2] fixed right-0 h-screen w-screen bg-white md:w-1/2 py-3 flex flex-col">
@@ -61,15 +59,17 @@ const Cart = ({cart, setCart, toggleCart}) => {
                                             <div className="text-lg font-semibold tracking-tight mx-3 truncate overflow-hidden">{item.title}</div>
                                             
                                             <div className="flex">
-                                                <div className="flex flex-1 items-center justify-center">
-                                                    <button className="w-8 h-8 border-2" onClick={() => decreaseQuantity(item.id)}>-</button>
-                                                    <div className="w-8 text-center">{item.quantity}</div>
-                                                    <button className="w-8 h-8 border-2" onClick={() => increaseQuantity(item.id)}>+</button>
+                                                <div className="flex flex-1 items-center justify-center text-lg">
+                                                    <button className="w-8 h-8 border" onClick={() => decreaseQuantity(item.id)}>-</button>
+                                                    <div className="w-16 text-center">{item.quantity}</div>
+                                                    <button className="w-8 h-8 border" onClick={() => increaseQuantity(item.id)}>+</button>
                                                 </div>
                                             </div>
-                                            <div className="flex justify-between">
-                                                <div className="mx-3 font-semibold text-gray-500">${item.quantity * item.price}</div>
-                                                <button className="mx-3" onClick={(e) => deleteItem(e, item.id)}>Delete Item</button>
+                                            <div className="flex justify-between text-gray-500">
+                                                <div className="mx-3 font-semibold">${item.price}</div>
+                                                <button className="mx-3" onClick={(e) => deleteItem(e, item.id)}>
+                                                    <FontAwesomeIcon icon={faTrash} />
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -83,7 +83,7 @@ const Cart = ({cart, setCart, toggleCart}) => {
                 <div className="m-3 border-t-2 border-gray-200 mx-8 mt-3 flex flex-col">
                     <div className="font-base tracking-tight text-center my-3">Total: ${calculateTotal()}</div>
                     <button type="button" 
-                            className="py-3 flex-1 text-white bg-black text-center hover:opacity-80">
+                            className="py-3 flex-1 text-white bg-[#283618] text-center hover:opacity-80">
                             Checkout
                     </button>
                 </div>

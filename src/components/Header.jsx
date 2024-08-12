@@ -20,11 +20,16 @@ const Header = ({cart, toggleCart}) => {
                 </Link>
                 
                 <div className="absolute right-0 flex items-center px-6 gap-6 md:gap-12">
-                    <Link to="/">Home</Link>
-                    <Link to="/shop">Shop</Link>    
-                    <button className="relative ml-3 md:ml-6 text-[20px]"onClick={() => toggleCart()}>
+                    <Link className="hover:underline hover:underline-offset-4" to="/">Home</Link>
+                    <Link className="hover:underline hover:underline-offset-4" to="/shop">Shop</Link>    
+                    <button className="relative ml-3 md:ml-6 text-[20px]" aria-label="cart button" onClick={() => toggleCart()}>
                         <FontAwesomeIcon icon={faBasketShopping} />
-                        <span className=" absolute bottom-3 left-6 bg-red-700 text-white text-[12px] w-[18px] h-[18px] rounded-full flex items-center justify-center">{consolidateCart()}</span>
+                        <span 
+                            className="absolute bottom-3 left-6 bg-red-700 text-white text-[12px] w-[18px] h-[18px] rounded-full flex items-center justify-center"
+                            aria-label="cart count"
+                        >
+                            {consolidateCart()}
+                        </span>
                     </button>
                 </div> 
             </div>
