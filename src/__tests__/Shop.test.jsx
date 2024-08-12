@@ -19,7 +19,8 @@ const mockSingleProduct = [
         title: 'Product 1',
         price: 10.00,
         images: ['https://via.placeholder.com/150'],
-        selected: 1
+        selected: 1,
+        description: 'description 1'
     },
 ]
 
@@ -29,21 +30,24 @@ const mockProducts = [
       title: 'Product 1',
       price: 10.00,
       images: ['https://via.placeholder.com/150'],
-      selected: 1
+      selected: 1,
+      description: 'description 1'
     },
     {
       id: 2,
       title: 'Product 2',
       price: 20.00,
       images: ['https://via.placeholder.com/150'],
-      selected: 1
+      selected: 1,
+      description: 'description 2'
     },
     {
         id: 3,
         title: 'Product 3',
         price: 250.00,
         images: ['https://via.placeholder.com/150'],
-        selected: 1
+        selected: 1,
+        description: 'description 3'
     }
 ]
 

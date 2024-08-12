@@ -17,7 +17,8 @@ const mockProducts = [
         title: 'Product 1',
         price: 10.00,
         images: ['https://via.placeholder.com/150'],
-        selected: 1
+        selected: 1,
+        description: 'description 1'
     },
 ];
 
@@ -43,6 +44,7 @@ describe('ProductPage', () => {
         // Check for product details
         expect(screen.getByText('Product 1')).toBeInTheDocument();
         expect(screen.getByText('$10')).toBeInTheDocument();
+        expect(screen.getByText('description 1')).toBeInTheDocument();
         expect(screen.getByRole('img').getAttribute('src')).toBe('https://via.placeholder.com/150');
     });
 

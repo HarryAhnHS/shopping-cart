@@ -19,7 +19,7 @@ const ProductPage = ({products, decreaseSelected, handleSelectedChange, increase
                         <h1 className="flex-auto text-3xl font-semibold text-black]">{spotlight.title}</h1>
                         <div className="text-2xl font-semibold text-gray-500">${spotlight.price}</div>
                     </div>
-                    <p className="my-8 text-md font-normal text-gray-500 lg:text-lg dark:text-gray-400">Crafted from premium, breathable cotton with a touch of stretch, this hoodie is designed for the modern trendsetter. Featuring a relaxed fit, minimalist design, and subtle detailing, it is perfect for layering or wearing solo. Whether you are lounging at home or stepping out, this hoodie effortlessly elevates your casual look while keeping you warm and comfortable. Available in a range of versatile colors to match your every mood.</p>
+                    <p className="my-8 text-md font-normal text-gray-500 lg:text-lg dark:text-gray-400">{spotlight.description}</p>
                     <div>
                         <div className="flex justify-center">
                             <button className="w-8 h-8 border" onClick={(e) => decreaseSelected(e, spotlight.id)}>-</button>
