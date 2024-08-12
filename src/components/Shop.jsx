@@ -27,7 +27,6 @@ const Shop = ({products, isCalled, decreaseSelected, handleSelectedChange, incre
                                         <div className="flex rounded-lg cursor-pointer bg-[#FFFFFF] shadow-xl hover:scale-[1.03] transition-all duration-300" onClick={() => routeChange(prod.id)}>
                                             <div className="flex-none w-1/3 h-64">
                                                 <ImageCarousel images={prod.images} type={'shop'}/>
-                                                {/* <img src={prod.images[0]} className="inset-0 w-full h-full object-cover rounded-l-lg"></img> */}
                                             </div>
                                             <div className="flex-auto p-6 flex flex-col">
                                                 <div className="flex flex-col">
