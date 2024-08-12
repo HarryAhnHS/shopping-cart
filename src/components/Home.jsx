@@ -31,10 +31,10 @@ const Home = ({featured}) => {
                     <div className="flex flex-wrap">
                         {featured.map((feat) => {
                                 return (
-                                    <div className="w-full md:w-1/3 p-5" 
+                                    <div className="w-full p-5 lg:w-1/3" 
                                         key={feat.id}>
-                                        <div className="flex rounded-lg bg-cover bg-center h-56 cursor-pointer hover:scale-105 transition-all duration-200 shadow-xl"
-                                            style={{ backgroundImage: `url(${feat.images[0]})` }}
+                                        <div className="h-96 flex rounded-lg bg-cover bg-center cursor-pointer hover:scale-105 transition-all duration-200 shadow-xl"
+                                            style={{ backgroundImage: `url(${feat.images[0]})`, backgroundPosition: 'top' }}
                                             onClick={() => routeChange(feat.id)}>
                                             <div className="relative bg-black bg-opacity-0 rounded-lg w-full h-full hover:bg-opacity-50 transition-all duration-200">
                                                 <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-200 p-6">

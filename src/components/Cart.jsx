@@ -31,49 +31,55 @@ const Cart = ({cart, setCart, toggleCart}) => {
     return (
         <>
             <div className="z-[2] fixed right-0 h-screen w-screen bg-white md:w-1/2 py-3 flex flex-col">
-                <div className="flex items-center m-5">
+                <div className="flex items-center mx-5">
                     <h1 className="text-lg font-bold flex-1">Cart</h1>
                     <button onClick={toggleCart}>Close</button>
                 </div>
-                
-                <div className="flex-1 overflow-y-scroll overscroll-none mb-3">
-                    {cart.map((item) => {
-                        return (
-                            <div className="mb-3 mx-3" key={item.id}>
-                                <div className="flex bg-white items-center">
-                                    <div className="flex-none w-1/4 h-32">
-                                            <img src={item.images[0]} className="w-full h-full object-center object-cover"></img>
-                                    </div>
-                                    <div className="flex flex-col flex-1 h-32">
-                                        <div className="text-lg tracking-tight m-3 flex-1">{item.title}</div>
-                                        
-                                        <div className="flex">
-                                            <div className="flex flex-1 items-center justify-center">
-                                                <button className="w-8 h-8 border-2" onClick={() => decreaseQuantity(item.id)}>-</button>
-                                                <div className="w-8 text-center">{item.quantity}</div>
-                                                <button className="w-8 h-8 border-2" onClick={() => increaseQuantity(item.id)}>+</button>
-                                            </div>
+
+                {(cart.length == 0)
+                ?
+                    <div className="flex-1 flex items-center justify-center">Cart is empty.</div>
+                :
+                    <div className="flex-1 overflow-y-scroll overscroll-none mx-3 mt-3 rounded-xl">
+                        {cart.map((item) => {
+                            return (
+                                <div className="m-2 border border-gray-200 rounded-lg bg-white shadow-md" key={item.id}>
+                                    <div className="flex items-center">
+                                        <div className="flex-none w-1/4 h-32">
+                                                <img src={item.images[0]} className="rounded-l-lg w-full h-full object-center object-cover"></img>
                                         </div>
-                                        <div className="flex justify-between">
-                                            <div className="mx-3">${item.quantity * item.price}</div>
-                                            <button className="mx-3" onClick={(e) => deleteItem(e, item.id)}>Delete Item</button>
+                                        <div className="flex flex-col justify-around h-32 w-3/4 py-2">
+                                            <div className="text-lg font-semibold tracking-tight mx-3 truncate overflow-hidden">{item.title}</div>
+                                            
+                                            <div className="flex">
+                                                <div className="flex flex-1 items-center justify-center">
+                                                    <button className="w-8 h-8 border-2" onClick={() => decreaseQuantity(item.id)}>-</button>
+                                                    <div className="w-8 text-center">{item.quantity}</div>
+                                                    <button className="w-8 h-8 border-2" onClick={() => increaseQuantity(item.id)}>+</button>
+                                                </div>
+                                            </div>
+                                            <div className="flex justify-between">
+                                                <div className="mx-3 font-semibold text-gray-500">${item.quantity * item.price}</div>
+                                                <button className="mx-3" onClick={(e) => deleteItem(e, item.id)}>Delete Item</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        )
-                    })}
-                </div>
-
-                <div className="flex flex-col">
+                            )
+                        })}
+                    </div>
+                }
+                
+                
+                <div className="m-3 border-t-2 border-gray-200 mx-8 mt-3 flex flex-col">
+                    <div className="font-base tracking-tight text-center my-3">Total: ${calculateTotal()}</div>
                     <button type="button" 
-                            className="text-white bg-black hover:opacity-80 focus:outline-none focus:ring-4 font-medium text-sm py-2.5 mx-12 text-center">
+                            className="py-3 flex-1 text-white bg-black text-center hover:opacity-80">
                             Checkout
                     </button>
-                    <div className="text-lg font-bold tracking-tight text-center">Total: ${calculateTotal()}</div>
                 </div>
             </div>
-            <div className='overlay fixed h-screen w-screen bg-black opacity-50' onClick={toggleCart}>
+            <div className='overlay fixed h-screen w-screen bg-black bg-opacity-30' onClick={toggleCart}>
             </div>
         </>
     )
