@@ -8,5 +8,6 @@ Link: https://main--effervescent-brigadeiros-0da795.netlify.app/
 - React Testing Library, ViTest, UserEvent
 - Vite 
 - FontAwesomeIcons API
+- Netlify
 
 
