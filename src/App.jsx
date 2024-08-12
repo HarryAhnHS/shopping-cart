@@ -27,12 +27,14 @@ function App() {
     try {
         const response = await fetch('https://api.escuelajs.co/api/v1/products');
         const result = await response.json();
+        console.log(result)
         const resultItems = result.filter((res) => res.id > 0 && res.id < 50).map((res) => {
             return ({
                 title: res.title,
                 price: res.price,
                 images: res.images.map(link => extractHtmlToJpeg(link)), // Clean link
                 id: res.id,
+                description: res.description,
                 selected: 1,
             })
         })
