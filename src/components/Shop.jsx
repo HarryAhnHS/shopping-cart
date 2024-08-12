@@ -8,6 +8,9 @@ const Shop = ({products, isCalled, decreaseSelected, handleSelectedChange, incre
         let path = `/shop/${id}`; 
         navigate(path);
     }
+    
+    console.log(isCalled)
+
     return (
         <>
             {loading

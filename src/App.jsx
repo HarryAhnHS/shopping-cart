@@ -17,6 +17,12 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
+  function extractHtmlToJpeg(str) {
+    const regex = /https.*?\.jpeg/;
+    const match = str.match(regex);
+    return match ? match[0] : null;
+  }
+
   async function getProducts() {
     try {
         const response = await fetch('https://api.escuelajs.co/api/v1/products');
@@ -25,20 +31,26 @@ function App() {
             return ({
                 title: res.title,
                 price: res.price,
-                images: res.images,
+                images: res.images.map(link => extractHtmlToJpeg(link)), // Clean link
                 id: res.id,
                 selected: 1,
                 favorite: false,
             })
         })
+
         setProducts(resultItems);
+
+        if (resultItems.length === 0) {
+          setIsCalled(false);
+        } else {
+          setIsCalled(true);
+        }
     }
     catch(err) {
         throw new Error(err);
     }
     finally {
         setLoading(false);
-        if (products.length > 0) setIsCalled(true);
     }
   }
 
@@ -110,6 +122,8 @@ function App() {
   function toggleCart() {
     setIsCartOpen(!(isCartOpen));
   }
+
+  console.log(products)
 
   return (
     <div>
