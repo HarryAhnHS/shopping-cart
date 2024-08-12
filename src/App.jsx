@@ -34,7 +34,6 @@ function App() {
                 images: res.images.map(link => extractHtmlToJpeg(link)), // Clean link
                 id: res.id,
                 selected: 1,
-                favorite: false,
             })
         })
 
@@ -103,7 +102,6 @@ function App() {
           price: products.find((prod) => prod.id == prodId).price,
           images: products.find((prod) => prod.id == prodId).images,
           quantity: products.find((prod) => prod.id == prodId).selected,
-          favorite: products.find((prod) => prod.id == prodId).favorite
       }
 
       if (newProduct.quantity < 1) {

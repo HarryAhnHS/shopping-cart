@@ -31,12 +31,12 @@ describe('Cart', () => {
         mockToggleCart.mockClear();
     });
     
-    it("should render nav and match snapshot", () => {
+    it("should render cart and match snapshot", () => {
         const { container } = render(
             <Cart cart={mockCart} setCart={mockSetCart} toggleCart={mockToggleCart}/>
         );
         expect(container).toMatchSnapshot();
-      });
+    });
 
     it('renders cart items and total price correctly', () => {
         render(

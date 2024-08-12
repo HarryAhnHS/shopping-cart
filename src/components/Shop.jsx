@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import LoadingPage from "./LoadingPage";
-import QuantityInput from "./QuantityInput";
 
 const Shop = ({products, isCalled, decreaseSelected, handleSelectedChange, increaseSelected, addToCart, loading}) => {
 
@@ -34,7 +33,17 @@ const Shop = ({products, isCalled, decreaseSelected, handleSelectedChange, incre
                                                     <div className="text-base md:text-lg font-semibold text-gray-500">${prod.price}</div>
                                                 </div>
                                                 <div className="flex flex-1 items-center justify-center mb-5">
-                                                    <QuantityInput decreaseSelected={decreaseSelected} handleSelectedChange={handleSelectedChange} increaseSelected={increaseSelected} product={prod}/>
+                                                    <button className="w-8 h-8 border" onClick={(e) => decreaseSelected(e, prod.id)}>-</button>
+                                                    <input 
+                                                        className="w-16 h-8 text-center" 
+                                                        aria-label="selected amount"
+                                                        type="number" 
+                                                        min="0" 
+                                                        value={prod.selected} 
+                                                        onClick={(e) => e.stopPropagation()} // Stops event propagation
+                                                        onChange={(e) => handleSelectedChange(e, prod.id)} 
+                                                    />
+                                                    <button className="w-8 h-8 border" onClick={(e) => increaseSelected(e, prod.id)}>+</button>
                                                 </div>
                                                 <button className="h-10 text-[0.9rem] font-semibold text-[#FFFFFF] bg-[#283618] active:scale-95 transition-all duration-100" type="submit" onClick={(e) => addToCart(e, prod.id)}>
                                                         Add to cart
