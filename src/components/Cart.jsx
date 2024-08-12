@@ -39,8 +39,8 @@ const Cart = ({cart, setCart, toggleCart}) => {
                 <div className="flex-1 overflow-y-scroll overscroll-none mb-3">
                     {cart.map((item) => {
                         return (
-                            <div className="border-2 border-black mb-3 mx-3" key={item.id}>
-                                <div className="flex bg-white">
+                            <div className="border-b border-t border-black mb-3 mx-3" key={item.id}>
+                                <div className="flex bg-white items-center">
                                     <div className="flex-none w-1/4 h-32">
                                             <img src={item.images[0]} className="w-full h-full object-center object-cover"></img>
                                     </div>

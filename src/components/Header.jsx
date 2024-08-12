@@ -9,7 +9,7 @@ const Header = ({cart, toggleCart}) => {
 
     return (
         <div className="p-6 text-[#283618]">
-            <div className="relative font-bold tracking-tight text-lg">
+            <div className="relative tracking-tight text-lg">
                 <Link to="/" className="absolute left-0 mx-3 cursor-pointer">
                     <div className="w-[160px] md:w-[200px]">
                         <img src={Wavelength} className="w-full"></img>
@@ -21,8 +21,6 @@ const Header = ({cart, toggleCart}) => {
                     <Link to="/shop">Shop</Link>    
                     <button className="ml-3 md:ml-6"onClick={() => toggleCart()}>Cart ({consolidateCart()})</button>
                 </div> 
-
-
             </div>
         </div>
 

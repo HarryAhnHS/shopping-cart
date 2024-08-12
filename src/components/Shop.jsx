@@ -34,10 +34,10 @@ const Shop = ({products, isCalled, decreaseSelected, handleSelectedChange, incre
                                                 </div>
                                                 <div className="flex flex-1 items-center justify-center mb-5">
                                                     <button className="w-8 h-8 border-2" onClick={(e) => decreaseSelected(e, prod.id)}>-</button>
-                                                    <input className="w-16 h-8 text-center bg-[#edede9]" type="text" min="0" value={prod.selected} onClick={(e) => e.stopPropagation()} onChange={(e) => handleSelectedChange(e, prod.id)}></input>
+                                                    <input className="w-8 h-8 text-center" type="text" min="0" value={prod.selected} onClick={(e) => e.stopPropagation()} onChange={(e) => handleSelectedChange(e, prod.id)}></input>
                                                     <button className="w-8 h-8 border-2" onClick={(e) => increaseSelected(e, prod.id)}>+</button>
                                                 </div>
-                                                <button className="h-10 font-semibold rounded-md bg-black text-white active:" type="submit" onClick={(e) => addToCart(e, prod.id)}>
+                                                <button className="h-10 px-12 font-semibold text-[#FFFFFF] bg-[#283618] active:scale-95 transition-all duration-100" type="submit" onClick={(e) => addToCart(e, prod.id)}>
                                                         Add to cart
                                                 </button>
                                             </div>

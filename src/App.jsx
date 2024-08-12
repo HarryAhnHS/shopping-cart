@@ -9,19 +9,17 @@ import Cart from './components/Cart';
 import ProductPage from './components/ProductPage';
 import LoadingPage from './components/LoadingPage';
 import Footer from './components/Footer';
+import AddedFeedback from './components/AddedFeedback';
+import extractHtmlToJpeg from './helpers/extractLink';
 
 function App() {
   const [products, setProducts] = useState([]);
   const [isCalled, setIsCalled] = useState(false);
+  const [isAdded, setIsAdded] = useState(false);
+  const [productAdded, setProductAdded] = useState(null);
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isCartOpen, setIsCartOpen] = useState(false);
-
-  function extractHtmlToJpeg(str) {
-    const regex = /https.*?\.jpeg/;
-    const match = str.match(regex);
-    return match ? match[0] : null;
-  }
 
   async function getProducts() {
     try {
@@ -97,7 +95,7 @@ function App() {
           if (prod.id == prodId) exists = true;
       })
 
-      const newProducts = {
+      const newProduct = {
           id: prodId,
           title: products.find((prod) => prod.id == prodId).title,
           price: products.find((prod) => prod.id == prodId).price,
@@ -106,24 +104,33 @@ function App() {
           favorite: products.find((prod) => prod.id == prodId).favorite
       }
 
-      if (newProducts.quantity < 1) {
+      if (newProduct.quantity < 1) {
         resetSelected(prodId);
         return;
       }
  
       let updatedCart = [...cart];
-      if (exists) updatedCart.find((prod) => prod.id == prodId).quantity += newProducts.quantity;
-      else updatedCart = [...updatedCart, newProducts];
+      if (exists) updatedCart.find((prod) => prod.id == prodId).quantity += newProduct.quantity;
+      else updatedCart = [...updatedCart, newProduct];
 
       setCart(updatedCart);
       resetSelected(prodId);
+
+      toggleAdded(newProduct);
+  }
+
+  function toggleAdded(newProduct) {
+    setIsAdded(true);
+    setProductAdded(newProduct);
+    setTimeout(() => {
+      setIsAdded(false);
+      setProductAdded(null);
+    },1000);
   }
 
   function toggleCart() {
     setIsCartOpen(!(isCartOpen));
   }
-
-  console.log(products)
 
   return (
     <div>
@@ -133,7 +140,15 @@ function App() {
               <Cart cart={cart} setCart={setCart} toggleCart={toggleCart}/>
             :
               null
-        } 
+        }
+        
+        {isAdded 
+          ?
+            <AddedFeedback product={productAdded} />
+          : 
+            null
+        }
+
         <Header 
           cart={cart} 
           toggleCart={toggleCart}
@@ -164,7 +179,8 @@ function App() {
                   decreaseSelected={decreaseSelected} 
                   handleSelectedChange={handleSelectedChange} 
                   increaseSelected={increaseSelected}
-                  addToCart={addToCart}/>
+                  addToCart={addToCart}
+                />
               }
             />
         </Routes>
