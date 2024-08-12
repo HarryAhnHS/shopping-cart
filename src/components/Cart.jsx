@@ -1,3 +1,7 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faBasketShopping } from "@fortawesome/free-solid-svg-icons";
+
 const Cart = ({cart, setCart, toggleCart}) => {
     const calculateTotal = () => {
         return cart.reduce((accumulator, item) => accumulator += item.quantity * item.price, 0);
@@ -32,8 +36,13 @@ const Cart = ({cart, setCart, toggleCart}) => {
         <>
             <div className="z-[2] fixed right-0 h-screen w-screen bg-white md:w-1/2 py-3 flex flex-col">
                 <div className="flex items-center mx-5">
-                    <h1 className="text-lg font-bold flex-1">Cart</h1>
-                    <button onClick={toggleCart}>Close</button>
+                    <h1 className="text-lg font-bold flex-1">
+                        <FontAwesomeIcon icon={faBasketShopping} />
+                        <span className="ml-2">Cart</span>
+                    </h1>
+                    <button className="text-[24px]"onClick={toggleCart}>
+                        <FontAwesomeIcon icon={faXmark} />
+                    </button>
                 </div>
 
                 {(cart.length == 0)

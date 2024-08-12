@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Wavelength from '/wavelength.png'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { faBasketShopping } from "@fortawesome/free-solid-svg-icons";
 
 const Header = ({cart, toggleCart}) => {
 
@@ -23,7 +23,7 @@ const Header = ({cart, toggleCart}) => {
                     <Link to="/">Home</Link>
                     <Link to="/shop">Shop</Link>    
                     <button className="relative ml-3 md:ml-6 text-[20px]"onClick={() => toggleCart()}>
-                        <FontAwesomeIcon icon={faCartShopping} />
+                        <FontAwesomeIcon icon={faBasketShopping} />
                         <span className=" absolute bottom-3 left-6 bg-red-700 text-white text-[12px] w-[18px] h-[18px] rounded-full flex items-center justify-center">{consolidateCart()}</span>
                     </button>
                 </div> 

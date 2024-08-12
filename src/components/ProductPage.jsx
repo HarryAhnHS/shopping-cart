@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import QuantityInput from "./QuantityInput";
 
 const ProductPage = ({products, decreaseSelected, handleSelectedChange, increaseSelected, addToCart}) => {
     const { id } = useParams()
@@ -17,9 +18,7 @@ const ProductPage = ({products, decreaseSelected, handleSelectedChange, increase
                 <p className="my-8 text-md font-normal text-gray-500 lg:text-lg dark:text-gray-400">Crafted from premium, breathable cotton with a touch of stretch, this hoodie is designed for the modern trendsetter. Featuring a relaxed fit, minimalist design, and subtle detailing, it is perfect for layering or wearing solo. Whether you are lounging at home or stepping out, this hoodie effortlessly elevates your casual look while keeping you warm and comfortable. Available in a range of versatile colors to match your every mood.</p>
                 <div>
                     <div className="flex justify-center">
-                        <button className="w-8 h-8 border-2" onClick={(e) => decreaseSelected(e, id)}>-</button>
-                        <input className="w-16 h-8 text-center" type="text" min="0" value={spotlight.selected} onChange={(e) => handleSelectedChange(e, id)}></input>
-                        <button className="w-8 h-8 border-2" onClick={(e) => increaseSelected(e, id)}>+</button>
+                        <QuantityInput decreaseSelected={decreaseSelected} handleSelectedChange={handleSelectedChange} increaseSelected={increaseSelected} product={spotlight}/>   
                     </div>
                     <div className="flex justify-center m-6">
                         <button className="h-10 w-full text-[0.9rem] font-semibold text-[#FFFFFF] bg-[#283618] active:scale-95 transition-all duration-100" type="submit" onClick={(e) => addToCart(e, id)}>

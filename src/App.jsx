@@ -15,8 +15,10 @@ import extractHtmlToJpeg from './helpers/extractLink';
 function App() {
   const [products, setProducts] = useState([]);
   const [isCalled, setIsCalled] = useState(false);
+
   const [isAdded, setIsAdded] = useState(false);
   const [productAdded, setProductAdded] = useState(null);
+  
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isCartOpen, setIsCartOpen] = useState(false);
