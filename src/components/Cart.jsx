@@ -39,15 +39,15 @@ const Cart = ({cart, setCart, toggleCart}) => {
                 <div className="flex-1 overflow-y-scroll overscroll-none mb-3">
                     {cart.map((item) => {
                         return (
-                            <div className="border-b border-t border-black mb-3 mx-3" key={item.id}>
+                            <div className="mb-3 mx-3" key={item.id}>
                                 <div className="flex bg-white items-center">
                                     <div className="flex-none w-1/4 h-32">
                                             <img src={item.images[0]} className="w-full h-full object-center object-cover"></img>
                                     </div>
-                                    <div className="flex flex-col flex-1 p-3">
-                                        <div className="text-lg font-bold tracking-tight">{item.title}</div>
+                                    <div className="flex flex-col flex-1 h-32">
+                                        <div className="text-lg tracking-tight m-3 flex-1">{item.title}</div>
                                         
-                                        <div className="flex flex-1">
+                                        <div className="flex">
                                             <div className="flex flex-1 items-center justify-center">
                                                 <button className="w-8 h-8 border-2" onClick={() => decreaseQuantity(item.id)}>-</button>
                                                 <div className="w-8 text-center">{item.quantity}</div>

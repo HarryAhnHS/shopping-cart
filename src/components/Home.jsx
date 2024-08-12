@@ -36,11 +36,11 @@ const Home = ({featured}) => {
                                         <div className="flex rounded-lg bg-cover bg-center h-56 cursor-pointer hover:scale-105 transition-all duration-200 shadow-xl"
                                             style={{ backgroundImage: `url(${feat.images[0]})` }}
                                             onClick={() => routeChange(feat.id)}>
-                                            <div className="bg-black bg-opacity-0 rounded-lg w-full h-full hover:bg-opacity-40 transition-all duration-200">
-                                                <div className="flex-auto p-6 flex flex-col">
-                                                    <div className="flex flex-col">
-                                                        <h1 className="flex-auto text-lg font-semibold text-white">{feat.title}</h1>
-                                                        <div className="text-lg font-semibold text-white">${feat.price}</div>
+                                            <div className="relative bg-black bg-opacity-0 rounded-lg w-full h-full hover:bg-opacity-50 transition-all duration-200">
+                                                <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-200 p-6">
+                                                    <div className="text-white">
+                                                        <h1 className="text-lg font-semibold">{feat.title}</h1>
+                                                        <div className="text-lg font-semibold">${feat.price}</div>
                                                     </div>
                                                 </div>
                                             </div>
