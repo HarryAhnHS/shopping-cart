@@ -33,6 +33,7 @@ describe('ProductPage', () => {
                             handleSelectedChange={mockHandleSelectedChange}
                             increaseSelected={mockIncreaseSelected}
                             addToCart={mockAddToCart}
+                            loading={false}
                         />
                     } />
                 </Routes>
@@ -56,6 +57,7 @@ describe('ProductPage', () => {
                             handleSelectedChange={mockHandleSelectedChange}
                             increaseSelected={mockIncreaseSelected}
                             addToCart={mockAddToCart}
+                            loading={false}
                         />
                     } />
                 </Routes>
@@ -81,6 +83,7 @@ describe('ProductPage', () => {
                             handleSelectedChange={mockHandleSelectedChange}
                             increaseSelected={mockIncreaseSelected}
                             addToCart={mockAddToCart}
+                            loading={false}
                         />
                     } />
                 </Routes>
@@ -106,6 +109,7 @@ describe('ProductPage', () => {
                             handleSelectedChange={mockHandleSelectedChange}
                             increaseSelected={mockIncreaseSelected}
                             addToCart={mockAddToCart}
+                            loading={false}
                         />
                     } />
                 </Routes>

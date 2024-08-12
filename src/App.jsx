@@ -180,6 +180,7 @@ function App() {
                   handleSelectedChange={handleSelectedChange} 
                   increaseSelected={increaseSelected}
                   addToCart={addToCart}
+                  loading={loading}
                 />
               }
             />
