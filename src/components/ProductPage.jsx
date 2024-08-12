@@ -20,6 +20,7 @@ const ProductPage = ({products, decreaseSelected, handleSelectedChange, increase
                         <button className="w-8 h-8 border" onClick={(e) => decreaseSelected(e, spotlight.id)}>-</button>
                         <input 
                             className="w-16 h-8 text-center" 
+                            aria-label="product page selected input"
                             type="number" 
                             min="0" 
                             value={spotlight.selected} 
@@ -29,7 +30,7 @@ const ProductPage = ({products, decreaseSelected, handleSelectedChange, increase
                         <button className="w-8 h-8 border" onClick={(e) => increaseSelected(e, spotlight.id)}>+</button>
                     </div>
                     <div className="flex justify-center m-6">
-                        <button className="h-10 w-full text-[0.9rem] font-semibold text-[#FFFFFF] bg-[#283618] active:scale-95 transition-all duration-100" type="submit" onClick={(e) => addToCart(e, id)}>
+                        <button className="h-10 w-full text-[0.9rem] font-semibold text-[#FFFFFF] bg-[#283618] active:scale-95 transition-all duration-100" type="submit" onClick={(e) => addToCart(e, spotlight.id)}>
                             Add to cart
                         </button>
                     </div>
