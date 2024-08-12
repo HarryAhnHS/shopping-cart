@@ -1,0 +1,237 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Cart > should render nav and match snapshot 1`] = `
+<div>
+  <div
+    class="z-[2] fixed right-0 h-screen w-screen bg-white md:w-1/2 py-3 flex flex-col"
+  >
+    <div
+      class="flex items-center mx-5"
+    >
+      <h1
+        class="text-lg font-bold flex-1"
+      >
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-basket-shopping "
+          data-icon="basket-shopping"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          viewBox="0 0 576 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M253.3 35.1c6.1-11.8 1.5-26.3-10.2-32.4s-26.3-1.5-32.4 10.2L117.6 192 32 192c-17.7 0-32 14.3-32 32s14.3 32 32 32L83.9 463.5C91 492 116.6 512 146 512L430 512c29.4 0 55-20 62.1-48.5L544 256c17.7 0 32-14.3 32-32s-14.3-32-32-32l-85.6 0L365.3 12.9C359.2 1.2 344.7-3.4 332.9 2.7s-16.3 20.6-10.2 32.4L404.3 192l-232.6 0L253.3 35.1zM192 304l0 96c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-96c0-8.8 7.2-16 16-16s16 7.2 16 16zm96-16c8.8 0 16 7.2 16 16l0 96c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-96c0-8.8 7.2-16 16-16zm128 16l0 96c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-96c0-8.8 7.2-16 16-16s16 7.2 16 16z"
+            fill="currentColor"
+          />
+        </svg>
+        <span
+          class="ml-2"
+        >
+          Cart
+        </span>
+      </h1>
+      <button
+        aria-label="close cart"
+        class="text-[24px]"
+      >
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-xmark "
+          data-icon="xmark"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          viewBox="0 0 384 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      class="flex-1 overflow-y-scroll overscroll-none mx-3 mt-3 rounded-xl"
+    >
+      <div
+        class="m-2 border border-gray-200 rounded-lg bg-white shadow-md"
+      >
+        <div
+          class="flex items-center"
+        >
+          <div
+            class="flex-none w-1/4 h-32"
+          >
+            <img
+              class="rounded-l-lg w-full h-full object-center object-cover"
+              src="https://via.placeholder.com/150"
+            />
+          </div>
+          <div
+            class="flex flex-col justify-around h-32 w-3/4 py-2"
+          >
+            <div
+              class="text-lg font-semibold tracking-tight mx-3 truncate overflow-hidden"
+            >
+              Item 1
+            </div>
+            <div
+              class="flex"
+            >
+              <div
+                class="flex flex-1 items-center justify-center text-lg"
+              >
+                <button
+                  class="w-8 h-8 border"
+                >
+                  -
+                </button>
+                <div
+                  class="w-16 text-center"
+                >
+                  2
+                </div>
+                <button
+                  class="w-8 h-8 border"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            <div
+              class="flex justify-between text-gray-500"
+            >
+              <div
+                class="mx-3 font-semibold"
+              >
+                $
+                10
+              </div>
+              <button
+                aria-label="delete cart item"
+                class="mx-3"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="svg-inline--fa fa-trash "
+                  data-icon="trash"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  viewBox="0 0 448 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M135.2 17.7L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-7.2-14.3C307.4 6.8 296.3 0 284.2 0L163.8 0c-12.1 0-23.2 6.8-28.6 17.7zM416 128L32 128 53.2 467c1.6 25.3 22.6 45 47.9 45l245.8 0c25.3 0 46.3-19.7 47.9-45L416 128z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="m-2 border border-gray-200 rounded-lg bg-white shadow-md"
+      >
+        <div
+          class="flex items-center"
+        >
+          <div
+            class="flex-none w-1/4 h-32"
+          >
+            <img
+              class="rounded-l-lg w-full h-full object-center object-cover"
+              src="https://via.placeholder.com/150"
+            />
+          </div>
+          <div
+            class="flex flex-col justify-around h-32 w-3/4 py-2"
+          >
+            <div
+              class="text-lg font-semibold tracking-tight mx-3 truncate overflow-hidden"
+            >
+              Item 2
+            </div>
+            <div
+              class="flex"
+            >
+              <div
+                class="flex flex-1 items-center justify-center text-lg"
+              >
+                <button
+                  class="w-8 h-8 border"
+                >
+                  -
+                </button>
+                <div
+                  class="w-16 text-center"
+                >
+                  1
+                </div>
+                <button
+                  class="w-8 h-8 border"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            <div
+              class="flex justify-between text-gray-500"
+            >
+              <div
+                class="mx-3 font-semibold"
+              >
+                $
+                20
+              </div>
+              <button
+                aria-label="delete cart item"
+                class="mx-3"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="svg-inline--fa fa-trash "
+                  data-icon="trash"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  viewBox="0 0 448 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M135.2 17.7L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-7.2-14.3C307.4 6.8 296.3 0 284.2 0L163.8 0c-12.1 0-23.2 6.8-28.6 17.7zM416 128L32 128 53.2 467c1.6 25.3 22.6 45 47.9 45l245.8 0c25.3 0 46.3-19.7 47.9-45L416 128z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="m-3 border-t-2 border-gray-200 mx-8 mt-3 flex flex-col"
+    >
+      <div
+        class="font-base tracking-tight text-center my-3"
+      >
+        Total: $
+        40
+      </div>
+      <button
+        class="py-3 flex-1 text-white bg-[#283618] text-center hover:opacity-80"
+        type="button"
+      >
+        Checkout
+      </button>
+    </div>
+  </div>
+  <div
+    class="overlay fixed h-screen w-screen bg-black bg-opacity-30"
+  />
+</div>
+`;

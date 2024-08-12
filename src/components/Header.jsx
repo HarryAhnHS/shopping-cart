@@ -15,7 +15,7 @@ const Header = ({cart, toggleCart}) => {
             <div className="relative tracking-tight text-lg">
                 <Link to="/" className="absolute left-0 mx-3 cursor-pointer">
                     <div className="w-[160px] md:w-[200px]">
-                        <img src={Wavelength} className="w-full"></img>
+                        <img src={Wavelength} alt="logo" className="w-full"></img>
                     </div>
                 </Link>
                 

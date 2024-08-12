@@ -38,7 +38,7 @@ const Cart = ({cart, setCart, toggleCart}) => {
                         <FontAwesomeIcon icon={faBasketShopping} />
                         <span className="ml-2">Cart</span>
                     </h1>
-                    <button className="text-[24px]"onClick={toggleCart}>
+                    <button className="text-[24px]" aria-label="close cart" onClick={toggleCart}>
                         <FontAwesomeIcon icon={faXmark} />
                     </button>
                 </div>
@@ -67,7 +67,7 @@ const Cart = ({cart, setCart, toggleCart}) => {
                                             </div>
                                             <div className="flex justify-between text-gray-500">
                                                 <div className="mx-3 font-semibold">${item.price}</div>
-                                                <button className="mx-3" onClick={(e) => deleteItem(e, item.id)}>
+                                                <button className="mx-3" aria-label="delete cart item" onClick={(e) => deleteItem(e, item.id)}>
                                                     <FontAwesomeIcon icon={faTrash} />
                                                 </button>
                                             </div>
