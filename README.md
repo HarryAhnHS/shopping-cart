@@ -9,5 +9,6 @@ Link: https://main--effervescent-brigadeiros-0da795.netlify.app/
 - Vite 
 - FontAwesomeIcons API
 - Netlify
+- @material-tailwind/react for Carousel
 
 

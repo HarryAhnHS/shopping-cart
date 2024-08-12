@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import LoadingPage from "./LoadingPage";
+import ImageCarousel from "./ImageCarousel";
 
 const Shop = ({products, isCalled, decreaseSelected, handleSelectedChange, increaseSelected, addToCart, loading}) => {
 
@@ -23,9 +24,10 @@ const Shop = ({products, isCalled, decreaseSelected, handleSelectedChange, incre
                         {products.map((prod) => {
                             return (
                                     <div className="box-border w-full md:w-1/2 p-3" key={prod.id}>
-                                        <div className="flex rounded-lg cursor-pointer bg-[#FFFFFF] shadow-xl" onClick={() => routeChange(prod.id)}>
+                                        <div className="flex rounded-lg cursor-pointer bg-[#FFFFFF] shadow-xl hover:scale-[1.03] transition-all duration-300" onClick={() => routeChange(prod.id)}>
                                             <div className="flex-none w-1/3 h-64">
-                                                <img src={prod.images[0]} className="inset-0 w-full h-full object-cover rounded-l-lg"></img>
+                                                <ImageCarousel images={prod.images} type={'shop'}/>
+                                                {/* <img src={prod.images[0]} className="inset-0 w-full h-full object-cover rounded-l-lg"></img> */}
                                             </div>
                                             <div className="flex-auto p-6 flex flex-col">
                                                 <div className="flex flex-col">

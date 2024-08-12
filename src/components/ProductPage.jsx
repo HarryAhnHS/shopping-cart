@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import LoadingPage from "./LoadingPage";
+import ImageCarousel from "./ImageCarousel";
 
 const ProductPage = ({products, decreaseSelected, handleSelectedChange, increaseSelected, addToCart, loading}) => {
     const { id } = useParams()
@@ -12,7 +13,8 @@ const ProductPage = ({products, decreaseSelected, handleSelectedChange, increase
         :
             <section className="p-6 flex flex-col mx-12 sm:mx-24 my-6 md:flex-row">
                 <div className="flex-none w-full flex justify-center items-center md:w-1/2">
-                    <img src={spotlight.images[0]} className="inset-0 w-full h-full object-cover"></img>
+                    <ImageCarousel images={spotlight.images} type={'productPage'}/>
+                    {/* <img src={spotlight.images[0]} className="inset-0 w-full h-full object-cover"></img> */}
                 </div>
                 <div className="flex flex-col flex-auto p-6 justify-around">
                     <div className="flex flex-wrap">

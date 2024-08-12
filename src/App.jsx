@@ -28,7 +28,7 @@ function App() {
         const response = await fetch('https://api.escuelajs.co/api/v1/products');
         const result = await response.json();
         console.log(result)
-        const resultItems = result.filter((res) => res.id > 0 && res.id < 50).map((res) => {
+        const resultItems = result.filter((res) => res.id > 0 && res.id < 100).map((res) => {
             return ({
                 title: res.title,
                 price: res.price,
