@@ -11,8 +11,8 @@ const ProductPage = ({products, decreaseSelected, handleSelectedChange, increase
         ? 
             <LoadingPage />
         :
-            <section className="p-6 flex flex-col mx-12 sm:mx-24 my-6 md:flex-row">
-                <div className="flex-none w-full flex justify-center items-center md:w-1/2">
+            <section className="p-6 flex flex-col items-center lg:flex-row lg:items-stretch mx-12 sm:mx-24 my-6">
+                <div className="flex-none w-full md:w-2/3 lg:w-1/2">
                     <ImageCarousel images={spotlight.images} type={'productPage'}/>
                     {/* <img src={spotlight.images[0]} className="inset-0 w-full h-full object-cover"></img> */}
                 </div>
