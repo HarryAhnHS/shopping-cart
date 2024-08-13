@@ -12,14 +12,14 @@ const Header = ({cart, toggleCart}) => {
 
     return (
         <div className="p-6 text-[#283618]">
-            <div className="relative tracking-tight text-lg">
-                <Link to="/" className="absolute left-0 mx-3 cursor-pointer">
-                    <div className="w-[160px] md:w-[200px]">
+            <div className="flex justify-between tracking-tight text-lg">
+                <Link to="/" className="mx-3 cursor-pointer">
+                    <div className="w-[140px] md:w-[200px]">
                         <img src={Wavelength} alt="logo" className="w-full"></img>
                     </div>
                 </Link>
                 
-                <div className="absolute right-0 flex items-center px-6 gap-6 md:gap-12">
+                <div className="flex items-center px-6 gap-6 md:gap-12">
                     <Link className="hover:underline hover:underline-offset-4" to="/">Home</Link>
                     <Link className="hover:underline hover:underline-offset-4" to="/shop">Shop</Link>    
                     <button className="relative ml-3 md:ml-6 text-[20px]" aria-label="cart button" onClick={() => toggleCart()}>
