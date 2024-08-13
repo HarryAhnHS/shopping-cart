@@ -11,18 +11,20 @@ const Header = ({cart, toggleCart}) => {
     }
 
     return (
-        <div className="p-6 text-[#283618]">
-            <div className="flex justify-between tracking-tight text-lg">
-                <Link to="/" className="mx-3 cursor-pointer">
-                    <div className="w-[140px] md:w-[200px]">
+        <div className="px-6 pt-6 text-[#283618]">
+            <div className="relative flex flex-col items-center gap-6 sm:flex-row sm:justify-between tracking-tight text-lg">
+                <Link to="/" className="cursor-pointer">
+                    <div className="w-[200px] sm:w-[240px]">
                         <img src={Wavelength} alt="logo" className="w-full"></img>
                     </div>
                 </Link>
                 
-                <div className="flex items-center px-6 gap-6 md:gap-12">
+                <div className="text-xl sm:text-lg sm:mr-24 flex items-center px-6 gap-16 sm:gap-12">
                     <Link className="hover:underline hover:underline-offset-4" to="/">Home</Link>
                     <Link className="hover:underline hover:underline-offset-4" to="/shop">Shop</Link>    
-                    <button className="relative ml-3 md:ml-6 text-[20px]" aria-label="cart button" onClick={() => toggleCart()}>
+                </div> 
+
+                <button className="absolute right-3 sm:right-6 sm:ml-12 text-[20px]" aria-label="cart button" onClick={() => toggleCart()}>
                         <FontAwesomeIcon icon={faBasketShopping} />
                         <span 
                             className="absolute bottom-3 left-6 bg-red-700 text-white text-[12px] w-[18px] h-[18px] rounded-full flex items-center justify-center"
@@ -30,8 +32,7 @@ const Header = ({cart, toggleCart}) => {
                         >
                             {consolidateCart()}
                         </span>
-                    </button>
-                </div> 
+                </button>
             </div>
         </div>
 
